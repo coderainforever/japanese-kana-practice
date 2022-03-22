@@ -1,0 +1,129 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background: #333;
+}
+
+h1 {
+  color: #fefefe;
+  font-size: 1.5rem;
+  margin-bottom: 0;
+}
+
+h2 {
+  color: #fefefe;
+  font-size: 0.8rem;
+  font-weight: normal;
+  font-style: italic;
+}
+
+#timer,
+#errors {
+  display: inline-block;
+  color: #fefefe;
+  padding: 0.3em 0.5em;
+  margin-bottom: 0.5em;
+}
+
+#timer {
+  border: 1px solid;
+}
+#timer.finished {
+  color: #FF6B6B;
+}
+
+#errors {
+  font-size: 0.8rem;
+  opacity: 0.5;
+}
+#errors:before {
+  content: attr(data-errors);
+}
+
+.syllabary {
+  table-layout: fixed;
+  border: 1em solid #fefefe;
+  direction: rtl;
+  background: #fefefe;
+  width: 80%;
+}
+.syllabary td > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.syllabary td .hiragana,
+.syllabary td .katakana {
+  font-size: 1.4rem;
+  line-height: 2rem;
+  height: 2rem;
+  width: 50%;
+  transition: background 0.3s;
+}
+.syllabary td .hiragana.over,
+.syllabary td .katakana.over {
+  box-shadow: inset 0 0 0 2px #333;
+}
+.syllabary td .hiragana.error,
+.syllabary td .katakana.error {
+  transition: background 0s;
+  background: #FF6B6B;
+}
+.syllabary td .romaji {
+  line-height: 2rem;
+  width: 100%;
+  color: #333333;
+  background: #eee;
+}
+
+.kanas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 80%;
+  padding: 1em;
+}
+.kanas span {
+  display: inline-block;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  height: 2rem;
+  width: 2rem;
+  text-align: center;
+  margin: 0.3em;
+}
+.kanas span.dragging {
+  opacity: 0.5;
+}
+
+.hiragana,
+[data-type=hiragana] {
+  background: #be87d8;
+}
+
+.katakana,
+[data-type=katakana] {
+  background: #4ECDC4;
+}
+
+@media all and (max-width: 800px) {
+  .syllabary td .hiragana,
+.syllabary td .katakana {
+    width: 100%;
+  }
+}
+@media all and (max-width: 570px) {
+  .syllabary {
+    width: 100%;
+    border: none;
+  }
+}
