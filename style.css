@@ -56,7 +56,7 @@ h2 {
 }
 .syllabary td > div {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
   justify-content: center;
   align-items: center;
   text-align: center;
